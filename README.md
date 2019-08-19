@@ -6,3 +6,13 @@ Suppose We have decided to build our own online selling platform known as Amazin
 from s2 after all the items listed by s1 exhausted. In the meantime s1 again adds some items to the catalog. Once the current purchase from s2 completes, the next buyer must buy the item(s) listed by s1 before buying from any other seller. We may assume that the priorities are unique (no duplicates) and non-negative. In the starter code, the  priorities are given as simple integers. Assume the lower number to be of higher priority. Being a student We’re on a budget and can’t afford expensive infrastructure. As a result, We have very limited space for the catalog. At any time at most N items can be stored in the catalog. If the catalog is already full, then the sellers need to wait for some buyers to buy items before they can add their product to the catalog. Also, if the catalog is empty, then the buyers need to wait until a seller adds their items to the catalog. Our task is to implement the Seller and Buyer classes using Java Threads.
 
 Here inventory is a queue from where sellers take products and enqueue that products to catalog queue. The catalog dequeues the products to the buyers according to the priority of the sellers who enqueues that product in the catalog.
+
+
+##solution
+###Implementation of a Circular Queue
+For inventory queue, we implement a circular queue, in which we create two variables front and rear. Instead of shifting the nodes of the queue after each dequeue and enqueue, we move the position of front and rear for the sake of time effiency, we use this method to enqueue and dequeue elements from a queue.
+
+##Implementation of Priority Queue
+For catalog queue, we must dequeue the element from the queue with the highest priority(i.e. lowest priority value).
+enqueue function is same as circular queue. In dequeue function, we first compare the priority values of all the elements and return the element with the lowest priority value.
+
